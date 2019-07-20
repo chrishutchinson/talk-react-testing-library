@@ -1,0 +1,11 @@
+{
+  "name": "@chrishutchinson/talk-react-testing-library",
+  "version": "1.0.0",
+  "description": "Test like you mean it with React Testing Library",
+  "main": "src/deck.mdx",
+  "author": "Chris Hutchinson <chris_hutchinson@me.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^3.0.7"
+  }
+}
