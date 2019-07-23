@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Demo #5 should render an error message if an invalid location in entered 1`] = `
+<DocumentFragment>
+  <main>
+    <fieldset>
+      <p>
+        Error: The location field cannot contain more than 10 characters
+      </p>
+      <input
+        placeholder="Location"
+        type="text"
+        value="Invalid value"
+      />
+      <button>
+        Use your current location
+      </button>
+    </fieldset>
+  </main>
+</DocumentFragment>
+`;
