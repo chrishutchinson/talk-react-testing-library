@@ -1,29 +1,173 @@
 import { Head } from "mdx-deck";
-import myTheme from "./theme";
-export const theme = myTheme;
+import Jest from "./Jest";
 
 <Head>
   <link
-    href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat&display=swap"
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat&display=swap"
   />
 </Head>
 
-import Base from "./base";
+import { CodeSurfer } from "mdx-deck-code-surfer";
 
-<Base>
-  # Test like you mean it with React Testing Library
-</Base>
+import Layout from "./Layout";
+import myTheme from "./theme";
+
+import demoOne from "raw-loader!./code/one.tsx";
+import demoTwo from "raw-loader!./code/two.tsx";
+import demoThree from "raw-loader!./code/three.tsx";
+
+export const theme = myTheme;
+
+<Layout>
+
+# Test like you mean it
+
+## with React Testing Library
+
+</Layout>
+
 ---
 
-# About Me
+<Layout>
+
+# Testing React today
+
+- Jest
+- Enzyme
+- React Test Utils
+- Cypress
+- React Testing Library
+
+</Layout>
 
 ---
 
-```jsx
-<CodeSnippet />
-```
+<Layout>
+
+# Testing React today
+
+- <strike>Jest</strike>
+- <strike>Enzyme</strike>
+- <strike>React Test Utils</strike>
+- <strike>Cypress</strike>
+- **React Testing Library**
+
+</Layout>
 
 ---
 
-# The end
+<Layout>
+
+# Why?
+
+> Foobar
+
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #1 - Text"
+  code={demoOne}
+  lang="javascript"
+  steps={[
+    {
+      lines: [1],
+      notes: "Let's start with a simple React component 👋"
+    },
+    {
+      notes: "With a simple test"
+    },
+    {
+      lines: [4],
+      notes: "Here we call render() passing in our component"
+    },
+    {
+      lines: [6],
+      notes: "And here's our call to getByText"
+    },
+    {
+      lines: [6],
+      notes: "Psst! getByText throws on failure, so we don't need expect()"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest title="should render the text 'Hello, world!'" didPass={true} />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #2 - Placeholder text"
+  code={demoTwo}
+  lang="javascript"
+  steps={[
+    {
+      range: [1, 5],
+      notes: "Now, time for an input box"
+    },
+    {
+      notes: "We can target using the placeholder attribute"
+    },
+    {
+      lines: [10],
+      notes: "We call getByPlaceholderText just like before"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render an input with a 'Location' placeholder"
+    didPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #3 - Roles"
+  code={demoThree}
+  lang="javascript"
+  steps={[
+    {
+      range: [1, 8],
+      notes: "How about a button?"
+    },
+    {
+      notes: `This would also target role="button"`
+    },
+    {
+      lines: [13],
+      notes: "This time we call getByRole"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render an element with the role 'button'"
+    didPass={true}
+  />
+</Layout>
