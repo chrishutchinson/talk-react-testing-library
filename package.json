@@ -6,7 +6,8 @@
   "author": "Chris Hutchinson <chris_hutchinson@me.com>",
   "license": "MIT",
   "scripts": {
-    "present": "mdx-deck slides/deck.mdx"
+    "present": "mdx-deck slides/deck.mdx",
+    "test": "jest demos/"
   },
   "devDependencies": {
     "mdx-deck": "^3.0.7"
