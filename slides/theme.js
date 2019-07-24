@@ -2,7 +2,7 @@ import { dark } from "mdx-deck/themes";
 import nightOwl from "prism-react-renderer/themes/nightOwl";
 
 const heading = {
-  fontFamily: '"Libre Baskerville", serif'
+  fontFamily: '"Montserrat", sans-serif'
 };
 
 export default {
@@ -22,6 +22,9 @@ export default {
   },
   codeSurfer: {
     ...nightOwl,
-    background: "#292A44"
+    plain: {
+      color: "#d6deeb",
+      backgroundColor: "#292A44"
+    }
   }
 };

@@ -13,7 +13,7 @@ const paddingStyles = {
 export default ({ children, withPadding = true, fullWidth = false }) => (
   <div
     style={{
-      borderTop: "20px solid #F66C9B",
+      borderTop: withPadding ? "20px solid #F66C9B" : "40px solid #F66C9B",
       textAlign: "center",
       ...(withPadding ? paddingStyles : {}),
       ...(fullWidth
