@@ -23,6 +23,7 @@ import demoFour from "raw-loader!./code/four.tsx";
 import demoFourTwo from "raw-loader!./code/four-two.tsx";
 import demoFive from "raw-loader!./code/five.tsx";
 import demoSix from "raw-loader!./code/six.tsx";
+import demoSixTwo from "raw-loader!./code/six-two.tsx";
 import demoSeven from "raw-loader!./code/seven.tsx";
 import demoEight from "raw-loader!./code/eight.tsx";
 
@@ -80,22 +81,27 @@ export const theme = myTheme;
   lang="jsx"
   steps={[
     {
-      lines: [1],
+      lines: [3],
       notes: "Let's start with a simple React component 👋"
     },
     {
-      notes: "With a simple test"
+      lines: [1],
+      notes: "And we'll import render() from React Testing Library"
     },
     {
-      lines: [4],
+      range: [5, 9],
+      notes: "And write a simple Jest test"
+    },
+    {
+      lines: [6],
       notes: "Here we call render() passing in our component"
     },
     {
-      lines: [6],
+      lines: [8],
       notes: "And here's our call to getByText"
     },
     {
-      lines: [6],
+      lines: [8],
       notes: "Psst! getByText throws on failure, so we don't need expect()"
     }
   ]}
@@ -106,7 +112,7 @@ export const theme = myTheme;
 ---
 
 <Layout fullWidth={true}>
-  <Jest title="should render the text 'Hello, world!'" didPass={true} />
+  <Jest title="should render the text 'Hello, world!'" shouldPass={true} />
 </Layout>
 
 ---
@@ -139,7 +145,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should render an input with a 'Location' placeholder"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -157,11 +163,12 @@ export const theme = myTheme;
       notes: "How about a button?"
     },
     {
-      notes: `This would also target role="button"`
+      lines: [11],
+      notes: "This time we call getByRole"
     },
     {
       lines: [11],
-      notes: "This time we call getByRole"
+      notes: `This would also target role="button"`
     }
   ]}
 />
@@ -173,7 +180,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should render an element with the role 'button'"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -196,11 +203,11 @@ export const theme = myTheme;
     },
     {
       range: [11, 13],
-      notes: "And dynamically set the 'Loading...' text"
+      notes: "And conditionally set the 'Loading...' text"
     },
     {
       range: [18, 24],
-      notes: ""
+      notes: "Here's our test"
     },
     {
       lines: [21],
@@ -208,7 +215,7 @@ export const theme = myTheme;
     },
     {
       lines: [23],
-      notes: "And then we assert on the text content of the button"
+      notes: "And then we assert on the text content of the button has changed"
     }
   ]}
 />
@@ -220,7 +227,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should change the button text to 'Loading...' when clicked"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -235,7 +242,7 @@ export const theme = myTheme;
   steps={[
     {
       range: [2, 6],
-      notes: "Let's refactor to support additional loading states"
+      notes: "Let's refactor to support additional loading status strings"
     },
     {
       range: [11, 15],
@@ -255,7 +262,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should change the button text to 'Loading...' when clicked"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -301,7 +308,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should render an error message if an invalid location is entered"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -310,7 +317,7 @@ export const theme = myTheme;
 <Layout withPadding={false}>
 
 <CodeSurfer
-  title="Demo #6 - Async requests"
+  title="Demo #6.1 - Async requests"
   code={demoSix}
   lang="jsx"
   steps={[
@@ -326,16 +333,8 @@ export const theme = myTheme;
       notes: "The test is very similar to our last one"
     },
     {
-      lines: [39],
-      notes: "We turn it into an async test"
-    },
-    {
-      lines: [45],
-      notes: "And we add a call to React Testing Library's `wait` call"
-    },
-    {
-      lines: [47],
-      notes: "Finally, we find an element with the correct display value"
+      lines: [42, 44],
+      notes: "We click the button and expect the correct display value"
     }
   ]}
 />
@@ -347,7 +346,38 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should render the async value into the input box"
-    didPass={true}
+    shouldPass={false}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #6.2 - Async requests"
+  code={demoSixTwo}
+  lang="jsx"
+  steps={[
+    {
+      lines: [39],
+      notes: "We need to turn it into an async test"
+    },
+    {
+      lines: [44],
+      notes: "And we add a call to React Testing Library's `wait` call"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render the async value into the input box"
+    shouldPass={true}
   />
 </Layout>
 
@@ -400,7 +430,7 @@ export const theme = myTheme;
 ---
 
 <Layout fullWidth={true}>
-  <Jest title="should call the onSubmit prop with..." didPass={true} />
+  <Jest title="should call the onSubmit prop with..." shouldPass={true} />
 </Layout>
 
 ---
@@ -457,7 +487,7 @@ export const theme = myTheme;
 <Layout fullWidth={true}>
   <Jest
     title="should render the form when the `/form` route is visited"
-    didPass={true}
+    shouldPass={true}
   />
 </Layout>
 
@@ -509,7 +539,7 @@ export const theme = myTheme;
 
 <Layout>
 
-<Jest title="should get to the end of the talk" didPass={true} />
+<Jest title="should get to the end of the talk" shouldPass={true} />
 
 You'll find these slides along with working tests and documentation links at:
 

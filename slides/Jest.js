@@ -3,7 +3,7 @@ import { withSlide } from "mdx-deck";
 
 const getRandomDuration = () => (Math.random() * 100 + 1).toFixed(0);
 
-export default withSlide(({ title, didPass = true, slide }) => {
+export default withSlide(({ title, shouldPass = true, slide }) => {
   const [isTesting, setIsTesting] = React.useState(true);
 
   React.useEffect(() => {
@@ -27,13 +27,13 @@ export default withSlide(({ title, didPass = true, slide }) => {
         style={{
           display: "inline-block",
           padding: 8,
-          background: isTesting ? "#99981D" : didPass ? "green" : "red",
+          background: isTesting ? "#99981D" : shouldPass ? "green" : "#D70917",
           color: "#FFF"
         }}
       >
-        {isTesting ? "RUNS" : didPass ? "PASS ✓" : "FAIL ✕"}
+        {isTesting ? "RUNS" : shouldPass ? "PASS ✓" : "FAIL ✕"}
       </span>{" "}
-      {title} {!isTesting && `(${getRandomDuration()}ms)`}
+      {title} {!isTesting && shouldPass && `(${getRandomDuration()}ms)`}
     </pre>
   );
 });

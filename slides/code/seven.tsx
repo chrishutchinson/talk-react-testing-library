@@ -48,7 +48,7 @@ const Component = ({ onSubmit }) => {
   );
 };
 
-it("should call the onSubmit prop with...", async () => {
+it("should call the onSubmit prop with...", () => {
   const mockOnSubmit = jest.fn();
   const { getByPlaceholderText, getByTestId } = render(
     <Component onSubmit={mockOnSubmit} />

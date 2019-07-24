@@ -36,10 +36,12 @@ const Component = () => {
   );
 };
 
-it("should render the async value into the input box", () => {
+it("should render the async value into the input box", async () => {
   const { getByDisplayValue, getByRole } = render(<Component />);
 
   fireEvent.click(getByRole("button"));
+
+  await wait();
 
   getByDisplayValue("SE1 9GF");
 });
