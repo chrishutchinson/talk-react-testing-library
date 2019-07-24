@@ -13,7 +13,7 @@ export default {
   h3: heading,
   h4: heading,
   font: '"Montserrat", sans-serif',
-  fontSizes: [10, 20, 30, 45, 60, 80],
+  fontSizes: [10, 20, 27, 45, 60, 80],
   weights: [700, 900],
   colors: {
     text: "white",

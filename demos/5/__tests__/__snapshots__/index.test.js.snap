@@ -5,7 +5,7 @@ exports[`Demo #5 should render an error message if an invalid location in entere
   <main>
     <fieldset>
       <p>
-        Error: The location field cannot contain more than 10 characters
+        Error: The location is not valid
       </p>
       <input
         placeholder="Location"
