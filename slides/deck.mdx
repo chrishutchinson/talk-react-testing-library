@@ -1,29 +1,548 @@
-import { Head } from "mdx-deck";
-import myTheme from "./theme";
-export const theme = myTheme;
+import { Head, Appear } from "mdx-deck";
+import Jest from "./Jest";
 
 <Head>
   <link
-    href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Montserrat&display=swap"
     rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
   />
+  <title>
+    Test like you mean it with React Testing Library | Chris Hutchinson
+  </title>
 </Head>
 
-import Base from "./base";
+import { CodeSurfer } from "mdx-deck-code-surfer";
 
-<Base>
-  # Test like you mean it with React Testing Library
-</Base>
+import Layout from "./Layout";
+import myTheme from "./theme";
+
+import demoOne from "raw-loader!./code/one.tsx";
+import demoTwo from "raw-loader!./code/two.tsx";
+import demoThree from "raw-loader!./code/three.tsx";
+import demoFour from "raw-loader!./code/four.tsx";
+import demoFourTwo from "raw-loader!./code/four-two.tsx";
+import demoFive from "raw-loader!./code/five.tsx";
+import demoSix from "raw-loader!./code/six.tsx";
+import demoSixTwo from "raw-loader!./code/six-two.tsx";
+import demoSeven from "raw-loader!./code/seven.tsx";
+import demoEight from "raw-loader!./code/eight.tsx";
+
+export const theme = myTheme;
+
+<Layout>
+
+# Test like you mean it with React Testing Library
+
+</Layout>
+
 ---
 
-# About Me
+<Layout>
+
+# Testing React today
+
+- Enzyme
+- React Test Utils
+- Cypress
+- React Testing Library
+
+</Layout>
 
 ---
 
-```jsx
-<CodeSnippet />
-```
+<Layout>
+
+# Testing React today
+
+- <strike>Enzyme</strike>
+- <strike>React Test Utils</strike>
+- <strike>Cypress</strike>
+- **React Testing Library**
+
+</Layout>
 
 ---
 
-# The end
+<Layout>
+
+# Why?
+
+> Foobar
+
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #1 - Text"
+  code={demoOne}
+  lang="jsx"
+  steps={[
+    {
+      lines: [3],
+      notes: "Let's start with a simple React component 👋"
+    },
+    {
+      lines: [1],
+      notes: "And we'll import render() from React Testing Library"
+    },
+    {
+      range: [5, 9],
+      notes: "And write a simple Jest test"
+    },
+    {
+      lines: [6],
+      notes: "Here we call render() passing in our component"
+    },
+    {
+      lines: [8],
+      notes: "And here's our call to getByText"
+    },
+    {
+      lines: [8],
+      notes: "Psst! getByText throws on failure, so we don't need expect()"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest title="should render the text 'Hello, world!'" shouldPass={true} />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #2 - Placeholder text"
+  code={demoTwo}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 5],
+      notes: "Now, time for an input box"
+    },
+    {
+      notes: "We can target using the placeholder attribute"
+    },
+    {
+      lines: [10],
+      notes: "We call getByPlaceholderText just like before"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render an input with a 'Location' placeholder"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #3 - Roles"
+  code={demoThree}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 6],
+      notes: "How about a button?"
+    },
+    {
+      lines: [11],
+      notes: "This time we call getByRole"
+    },
+    {
+      lines: [11],
+      notes: `This would also target role="button"`
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render an element with the role 'button'"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #4.1 - Firing events"
+  code={demoFour}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 18],
+      notes: "Here are some more features"
+    },
+    {
+      range: [2, 6],
+      notes: "Here we've got a bit of React state"
+    },
+    {
+      range: [11, 13],
+      notes: "And conditionally set the 'Loading...' text"
+    },
+    {
+      range: [18, 24],
+      notes: "Here's our test"
+    },
+    {
+      lines: [21],
+      notes: "We fire a click event on our button"
+    },
+    {
+      lines: [23],
+      notes: "And then we assert on the text content of the button has changed"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should change the button text to 'Loading...' when clicked"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #4.2 - Firing events"
+  code={demoFourTwo}
+  lang="jsx"
+  steps={[
+    {
+      range: [2, 6],
+      notes: "Let's refactor to support additional loading status strings"
+    },
+    {
+      range: [11, 15],
+      notes: "And change the button implementation"
+    },
+    {
+      range: [20, 26],
+      notes: "But keep the test the same"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should change the button text to 'Loading...' when clicked"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #5 - Changing inputs"
+  code={demoFive}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 33],
+      notes: "Now let's validate the text input"
+    },
+    {
+      lines: [16],
+      notes: "We'll show an error message if the provided location isn't valid"
+    },
+    {
+      lines: [22],
+      notes: "Here's our onChange handler"
+    },
+    {
+      range: [35, 45]
+    },
+    {
+      range: [38, 42],
+      notes: "Here we fire a change event, passing in our invalid value"
+    },
+    {
+      lines: [44],
+      notes: "And we can even use a regex to match"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render an error message if an invalid location is entered"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #6.1 - Async requests"
+  code={demoSix}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 37]
+    },
+    {
+      range: [5, 11],
+      notes: "Here we add a handler with an asynchronous function call"
+    },
+    {
+      range: [39, 48],
+      notes: "The test is very similar to our last one"
+    },
+    {
+      lines: [42, 44],
+      notes: "We click the button and expect the correct display value"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render the async value into the input box"
+    shouldPass={false}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #6.2 - Async requests"
+  code={demoSixTwo}
+  lang="jsx"
+  steps={[
+    {
+      lines: [39],
+      notes: "We need to turn it into an async test"
+    },
+    {
+      lines: [44],
+      notes: "And we add a call to React Testing Library's `wait` call"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render the async value into the input box"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #7 - Mocking"
+  code={demoSeven}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 49]
+    },
+    {
+      lines: [1],
+      notes: "We've added a new onSubmit prop"
+    },
+    {
+      range: [17, 26],
+      notes: "And a new callback to handle the submission"
+    },
+    {
+      range: [44, 46],
+      notes: "And our new submit button (note the data-testid attribute)"
+    },
+    {
+      range: [51, 61]
+    },
+    {
+      range: [52, 55],
+      notes: "We render our component with a mocked callback function"
+    },
+    {
+      range: [57, 58],
+      notes:
+        "We type into the input box, and click the submit button (using getByTestId)"
+    },
+    {
+      lines: [60],
+      notes:
+        "Finally, we assert our mocked submit handler prop was called correctly"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest title="should call the onSubmit prop with..." shouldPass={true} />
+</Layout>
+
+---
+
+<Layout withPadding={false}>
+
+<CodeSurfer
+  title="Demo #8 - Routing"
+  code={demoEight}
+  lang="jsx"
+  steps={[
+    {
+      range: [1, 6],
+      notes: "Here we're rendering some React Router routes"
+    },
+    {
+      lines: [4],
+      notes: "With our location form at the /form route"
+    },
+    {
+      range: [8, 19],
+      notes: "Here's our test"
+    },
+    {
+      range: [8, 13],
+      notes:
+        "I've written a simple helper function, visit(), using an in-memory router"
+    },
+    {
+      lines: [8],
+      notes: "This takes a path"
+    },
+    {
+      lines: [9, 13],
+      notes: "And calls React Testing Library's render() method"
+    },
+    {
+      lines: [16],
+      notes:
+        "And instead of calling render(), we'll call visit(), passing the route we want"
+    },
+    {
+      lines: [18],
+      notes:
+        "We can call any standard React Testing Library methods, and we can even use Jest snapshots"
+    }
+  ]}
+/>
+
+</Layout>
+
+---
+
+<Layout fullWidth={true}>
+  <Jest
+    title="should render the form when the `/form` route is visited"
+    shouldPass={true}
+  />
+</Layout>
+
+---
+
+<Layout>
+
+# There are more features?!
+
+<ul
+  style={{
+    textAlign: "left",
+    listStyleType: "none",
+    padding: 0,
+    fontSize: 31,
+    lineHeight: 1.6
+  }}
+>
+  <li>✅ Server-side render + hydration</li>
+  <li>✅ Unmounting behaviour</li>
+  <li>✅ Re-render on prop changes</li>
+  <li>
+    ✅ Test custom hooks via <code>@testing-library/react-hooks</code>
+  </li>
+  <li>
+    ✅ Human-like events via <code>@testing-library/user-events</code>
+  </li>
+</ul>
+
+## And not forgetting...
+
+<Appear>
+  <ul
+    style={{
+      textAlign: "left",
+      listStyleType: "none",
+      padding: 0
+    }}
+  >
+    <li>
+      ✅ React Native via <code>@testing-library/react-native</code>
+    </li>
+  </ul>
+</Appear>
+
+</Layout>
+
+---
+
+<Layout>
+
+<Jest title="should get to the end of the talk" shouldPass={true} />
+
+You'll find these slides along with working tests and documentation links at:
+
+`💻 github.com/chrishutchinson/talk-react-testing-library`
+
+</Layout>

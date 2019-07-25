@@ -1,8 +1,10 @@
 import React from "react";
 
+const isValidLocation = location => !location;
+
 const DemoFive = () => {
   const [loadingState, setLoadingState] = React.useState("none");
-  const [location, setLocation] = React.useState("");
+  const [location, setLocation] = React.useState(null);
 
   const handleClick = () => {
     setLoadingState("pending");
@@ -15,11 +17,7 @@ const DemoFive = () => {
   return (
     <main>
       <fieldset>
-        {location.length > 10 && (
-          <p>
-            Error: The location field cannot contain more than 10 characters
-          </p>
-        )}
+        {!isValidLocation(location) && <p>Error: The location is not valid</p>}
 
         <input
           type="text"

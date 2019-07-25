@@ -4,7 +4,7 @@ import { render, fireEvent } from "@testing-library/react";
 import DemoFive from "../index";
 
 describe("Demo #5", () => {
-  it("should render an error message if an invalid location in entered", () => {
+  it("should render an error message if an invalid location is entered", () => {
     const { getByPlaceholderText, getByText, asFragment } = render(
       <DemoFive />
     );
