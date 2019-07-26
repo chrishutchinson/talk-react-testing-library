@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Demo #5 should render an error message if an invalid location in entered 1`] = `
+exports[`Demo #5 should render an error message if an invalid location is entered 1`] = `
 <DocumentFragment>
   <main>
     <fieldset>

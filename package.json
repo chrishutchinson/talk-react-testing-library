@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "present": "mdx-deck slides/deck.mdx",
+    "build": "mdx-deck build slides/deck.mdx --no-html --out-dir docs",
     "test": "jest demos/"
   },
   "dependencies": {
