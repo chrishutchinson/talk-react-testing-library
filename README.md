@@ -34,7 +34,7 @@ There are non-interactive PDF slides available [here](slides.pdf).
 
 ### Video recording
 
-A video of the talk will be made available soon, check the [React London meetup page](https://meetup.react.london) for more details.
+A video of the talk has been made available on [YouTube](https://www.youtube.com/watch?v=rLYr2yNzC4Y) at https://youtu.be/rLYr2yNzC4Y. More details of the talk, and the other talks from the event, are available on the [React London meetup page](https://meetup.react.london).
 
 ## Demos
 
