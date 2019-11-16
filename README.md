@@ -1,4 +1,4 @@
-# Test like you mean in with React Testing Library
+# Test like you mean it with React Testing Library
 
 > A talk written for React London, 25th July 2019
 
